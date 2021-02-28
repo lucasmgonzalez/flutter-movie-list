@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'pages/HomePage.dart';
 
-void main() {
+Future main() async{
+  await DotEnv.load();
   runApp(MyApp());
 }
 

@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:convert';
 import 'package:teste/pages/MoviePage.dart';
 import 'package:teste/models/Movie.dart';
 
-List<Movie> movieList = [
-  Movie(title: 'Tenet', image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/k68nPLbIST6NP96JmTxmZijEvCA.jpg'),
-  Movie(title: 'Inception', image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ms1bJvwa4BJycBakQ7afcedGlwY.jpg'),
-  Movie(title: 'Interstellar', image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg'),
-  Movie(title: 'The Dark Knight', image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qJ2tW6WMUDux911r6m7haRef0WH.jpg'),
-  Movie(title: 'The Dark Knight Rises', image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vzvKcPQ4o7TjWeGIn0aGC9FeVNu.jpg'),
-  Movie(title: 'Batman Begins', image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1P3ZyEq02wcTMd3iE4ebtLvncvH.jpg'),
-  Movie(title: 'The Prestige', image: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/Ag2B2KHKQPukjH7WutmgnnSNurZ.jpg'),
-];
-
 Future<List<Movie>> fetchUpcomingMovies() async{
   Map<String, String> queryParams = {
-    'api_key': '{{API_KEY}}'
+    'api_key': env['TMDB_API_KEY']
   };
 
   var uri = Uri.https("api.themoviedb.org", '3/movie/upcoming', queryParams);

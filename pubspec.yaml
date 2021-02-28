@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_dotenv: 3.1.0
   http: ^0.12.2
   flutter:
     sdk: flutter
@@ -46,6 +47,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - .env
     - images/lake.jpg
     - images/mandalorian.jpg
 

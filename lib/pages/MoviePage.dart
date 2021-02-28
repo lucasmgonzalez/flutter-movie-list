@@ -12,10 +12,21 @@ class MoviePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(movie.title),
         ),
-        body: Column(
+        body: ListView(
             children: [
-              Container(padding: EdgeInsets.all(8),child: Image.network(movie.image)),
-              Text(movie.title)
+              Container(
+                  padding: EdgeInsets.all(8),
+                  child: Image.network(movie.image)
+              ),
+              Container(
+                padding: EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    Text(movie.title),
+                    Text(movie.overview)
+                  ],
+                ),
+              )
             ],
         )
     );
